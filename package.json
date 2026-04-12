@@ -1,0 +1,126 @@
+{
+  "name": "csv-excel-viewer",
+  "displayName": "CSV & Excel Viewer",
+  "description": "A lightweight VS Code extension to view CSV and Excel files without external dependencies",
+  "version": "1.0.0",
+  "publisher": "GabrielIkpolo",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:csvExcelViewer",
+    "onCommand:csvExcelViewer.openCsv",
+    "onCommand:csvExcelViewer.openExcel",
+    "onCommand:csvExcelViewer.openFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "csvExcelViewer.openCsv",
+        "title": "Open CSV Viewer"
+      },
+      {
+        "command": "csvExcelViewer.openExcel",
+        "title": "Open Excel Viewer"
+      },
+      {
+        "command": "csvExcelViewer.openFile",
+        "title": "Open in CSV/Excel Viewer"
+      }
+    ],
+    "languages": [
+      {
+        "id": "csv",
+        "aliases": ["CSV", "csv"],
+        "extensions": [".csv"]
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "csv-excel-viewer",
+          "title": "CSV/Excel Viewer",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "csv-excel-viewer": [
+        {
+          "id": "csvExcelViewer",
+          "name": "File Viewer"
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "csvExcelViewer.openFile",
+          "group": "navigation@csv",
+          "when": "resourceLangId == csv"
+        },
+        {
+          "command": "csvExcelViewer.openFile",
+          "group": "navigation@excel",
+          "when": "resourceExt == .xlsx || resourceExt == .xls"
+        }
+      ]
+    },
+    "fileIcons": {
+      "languages": [
+        {
+          "id": "csv",
+          "defaultIcon": {
+            "light": "resources/file-icons/csv-light.svg",
+            "dark": "resources/file-icons/csv-dark.svg"
+          }
+        }
+      ],
+      "extensions": [
+        {
+          "light": "resources/file-icons/excel-light.svg",
+          "dark": "resources/file-icons/excel-dark.svg",
+          "extension": "xlsx"
+        },
+        {
+          "light": "resources/file-icons/excel-light.svg",
+          "dark": "resources/file-icons/excel-dark.svg",
+          "extension": "xls"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.60.0",
+    "@types/xml2js": "^0.4.14",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^4.5.0",
+    "vsce": "^1.96.0"
+  },
+  "keywords": [
+    "csv",
+    "excel",
+    "viewer",
+    "xlsx",
+    "spreadsheet"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.5.16"
+  }
+}
