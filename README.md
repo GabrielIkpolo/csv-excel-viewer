@@ -1,98 +1,80 @@
 # CSV & Excel Viewer
 
-A lightweight VS Code extension for viewing CSV and Excel files without external dependencies.
+A lightweight and efficient Visual Studio Code extension to view CSV and Excel files directly within your editor. No need to switch to external spreadsheet software!
 
-## Features
+## ✨ Features
 
-- 📊 View CSV files with proper parsing (handles quoted fields)
-- 📈 View Excel (.xlsx) files by parsing the XML structure
-- 🔍 Basic search/filter functionality
-- 📱 Responsive table design with sticky headers
-- 🚀 No external dependencies required
-- 🎨 Dark theme optimized for VS Code
+- **Seamless Viewing**: View `.csv`, `.xlsx`, and `.xls` files in a dedicated, high-performance webview.
+- **Integrated Search**: Quickly find specific data within your spreadsheet using the built-in search bar.
+- **Activity Bar Integration**: Access the viewer easily through a dedicated icon in the VS Code Activity Bar.
+- **Context Menu Support**: Right-click any CSV or Excel file in your Explorer to open it instantly in the viewer.
+- **Lightweight**: Built with performance in mind, ensuring smooth scrolling and quick loading even for larger files.
+- **Custom Icons**: Enhanced file visibility with dedicated icons for CSV and Excel files in your explorer.
 
-## Installation
+## 🚀 Installation
 
-1. Clone or download this repository
-2. Open the project in VS Code
-3. Press F5 to launch the extension development host
-4. Open a CSV or Excel file to test the viewer
+### From the Marketplace
+1. Open VS Code.
+2. Go to the **Extensions** view (click the square icon on the left sidebar or press `Ctrl+Shift+X`).
+3. Search for `CSV & Excel Viewer`.
+4. Click **Install**.
 
-## Usage
+### From Source (For Developers)
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/GabrielIkpolo/csv-excel-viewer.git
+   ```
+2. Navigate to the directory:
+   ```bash
+   cd csv-excel-viewer
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Press `F5` to launch a new VS Code window with the extension loaded.
 
-### Opening Files
+## 🛠 Usage
 
-1. Click on the CSV/Excel Viewer icon in the Activity Bar
-2. Click "Open File" to select a CSV or Excel file
-3. The file will be displayed in a webview panel
+### Method 1: Explorer Context Menu (Easiest)
+- Right-click on any `.csv`, `.xlsx`, or `.xls` file in your file explorer.
+- Select **"Open in CSV/Excel Viewer"**.
 
-### Keyboard Shortcuts
+### Method 2: Activity Bar
+- Click the **CSV/Excel Viewer** icon in the Activity Bar on the left side of VS Code.
+- Use the commands within the viewer to open files.
 
-- Use the search box in the viewer to filter data
-- Scroll within the table to view more data
+### Method 3: Command Palette
+- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS).
+- Type and select one of the following:
+    - `Open CSV Viewer`
+    - `Open Excel Viewer`
+    - `Open in CSV/Excel Viewer`
 
-## File Formats Supported
+## ⌨️ Commands
 
-- **CSV**: Comma-separated values with optional quote handling
-- **Excel (.xlsx)**: XML-based spreadsheet format
+| Command | Description |
+| --- | --- |
+| `csvExcelViewer.openCsv` | Opens the dedicated CSV viewer panel. |
+| `csvExcelViewer.openExcel` | Opens the dedicated Excel viewer panel. |
+| `csvExcelViewer.openFile` | Opens a file dialog to select a CSV or Excel file. |
 
-## Development
+## 📸 Screenshots
 
-### Prerequisites
+*(Add screenshots here once you've published!)*
 
-- Node.js (v14 or higher)
-- npm or yarn
-- VS Code with the TypeScript extension
+![csv-viewer image](screenshot.png)
 
-### Building
+## 🤝 Contributing
 
-```bash
-npm install
-npm run compile
-```
+Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request.
 
-### Running Tests
+1. Fork the repository.
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`.
+3. Commit your changes: `git commit -m 'Add some AmazingFeature'`.
+4. Push to the branch: `git push origin feature/AmazingFeature`.
+5. Open a Pull Request.
 
-```bash
-npm test
-```
+## 📄 License
 
-### Packaging
-
-```bash
-npm run package
-```
-
-This will create a `.vsix` file that can be installed in VS Code.
-
-## Technical Details
-
-### CSV Parsing
-
-The extension implements a custom CSV parser that:
-- Handles quoted fields with commas inside quotes
-- Preserves whitespace and formatting
-- Supports both Windows and Unix line endings
-
-### Excel (.xlsx) Parsing
-
-The extension parses .xlsx files by:
-- Extracting the ZIP archive structure
-- Decompressing XML files using zlib
-- Parsing the XML content with a custom XML parser
-- Building a 2D array representation of the spreadsheet
-
-## Limitations
-
-- Large files may be slow to load
-- Complex Excel formulas are not evaluated
-- Only .xlsx format is supported (not .xls)
-- Conditional formatting is not displayed
-
-## License
-
-MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
