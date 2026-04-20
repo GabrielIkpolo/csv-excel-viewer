@@ -61,9 +61,9 @@ A lightweight and efficient Visual Studio Code extension to view CSV and Excel f
 
 ## 📸 Screenshots
 
-*(Add screenshots here once you've published!)*
-
 ![csv-viewer image](screenshot.png)
+
+
 
 ## 🤝 Contributing
 
